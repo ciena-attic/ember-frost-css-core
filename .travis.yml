@@ -12,13 +12,14 @@ install:
 - npm install
 - bower install
 after_success:
-- sed -i -- 's/SF:ember-frost-css-core\/\(.*\)/SF:addon\/\1.js/' coverage/lcov.info &&
-  rm -f coverage/lcov.info--
+- sed -i -- 's/SF:ember-frost-css-core\/\(.*\)/SF:addon\/\1.js/' coverage/lcov.info
+  && rm -f coverage/lcov.info--
 - cat coverage/lcov.info | coveralls
 env:
   matrix:
   - CXX=g++-4.8
   global:
+    secure: E8zjbz0w38lexGNRy+MBbTkCXpIClehpqkyRuayEtb+74fvbXJTQl7SWIi1zOX+BbfUCB/J+djMLET3QjrxIh0ZbR5WWKoc2vYk8CTvQ0UjMeve9n6V3phwhwcIM2w4iLF15jLxDNZhljmPmrMPT1yr6ukOk6gBAz4BUCq/0Ly4Ct4rOFv41ntxu3oYXLK/RHUQWEmBouKp+5x6CA7/789fwX4P1PlB4U2cFpyiWRk79jh2i4Apqn5PRtmKVsOrZf+RA7ib08yqAL11BRit4NeWiqMqCWBkh0104YKzaE/u4UsRAjJhv1iXSBBByi5HDfAO4Z8kYqXwWxzybknupZsmiHYQ0icHNV5/6rclv1Z8dmDjo8BzM8SlLuZrK1ScN1MD44mcgWizCX6shjKOS27YcWr1fcwCLXrBLsi8YDYZvjzBx4K/MqOm0TJxaFet3y1GX2o8T0GL7RZwcuVJj2pFjsYcR5/aP1r6Bwj2ACO37pGy9OFs3UU90BdNTk1VUcxwgo1TjRBqTfsXR6id4t/O0HOUKEismDtD2vF/K9Uto3srPMYYtuxQEje/y2TjQln6gmn5Am0j2BOcfyoA3vhebfWO1NUCMd9PC0BvlPgLKFGmt8jVaGE6KJPGbr4+uA9tCRd1h/zVgslMz2aV80nE3uU0UlGA6vMhdp6WIZgE=
 addons:
   apt:
     sources:
@@ -32,10 +33,12 @@ deploy:
   email: npm.ciena@gmail.com
   skip_cleanup: true
   api_key:
+    secure: GX/68CBnS/45g8olcm8cd4H22ghc/7d1VOXNPXIibfh77keW6ftM7WfcfMB85VpjzSrvIRkI9KVgFLEivfzt5ijJ0sObqENJtcNoV2QVCT+LT+BBlgPf+DGH91yQAyR666PfPhtudeXAt0OslgpF31SdUvdS/rcUNxau1RwQscMcAQYkcQz/Q61ahOYrM2w/oOGFfRKqHHYipSMatRUQe65Nzsms697+aSfC+oAFUc9ZhPZj8dNy6LIQC2t+LDzl+wyZLVbzqxs8cHNpjCrs43D2QXUX/sRJYIuBeI87i9s9kVNUuah+kW0h//2IGFSrPSNq4lduQb3pAqsaY6RUWPjCAj4xCG0/C0/lQ3BvakH+7IGs+EGsnVn/LzTI5Yt67d1a+FRoS05TkZMDQcC5ubg3xG5dOB1QkxbMslU1EjQyTjarrG9+KKW6SYX9y/OGbGBayZFqjixnbBnoG72kvpG166PNFed4/QuAMfzABQMiWYFFEL1kEUACv7lDOxxp82/H0hQlEeK1FS3VkmrBSJJ37TxKLZNGzFZOayN0gtGVAUzZrFjM9HN3m6qT0g5QF8b9m7L/F538yOYSPfkrLQmFcjohVH5HTQ+YvRjiMOVJkdD8xWQ2jzncKOoUl5lWpVNw7LdHBD1ozdcteSbNK09LuEtZ+7sFoPPoztoazyU=
   on:
     branch: master
     tags: false
 after_deploy:
-- .travis/publish-gh-pages.sh
+- ".travis/publish-gh-pages.sh"
 notifications:
   slack:
+    secure: lK3QTqDEQE3CB5zdXbvrLyc6GD7siIVBVan0A5Weqil/7cSfd+3lC3gF9CZIDqz4woZovnPIewPfO/21hL9naWY4MjW4dRoP5SLUDBBL+fsuiOfmISTih6OJBvWmXSa5OTOiasF7N7RXx4jLyoO0qgFzXMvlZb+CnbcDOuRVUR+zuGdmqpHLyTjD8Uu6fZCvl3DyJ5NFTK3E7KowhKyFoHAvzGP+tbSaWMjHCQjw77TvgK1bMo5vDociA/niygWuaZeGhA1u7iSc0KzB8VvyYXMmzKPmy5p78WVXqBqkJkB4V6Ccnd5HoNSU9IWU9X9MZK2PjKVQqQFb0NftMDQGPVGXwmt+KXW2xRfNNvJ51/vqMpm3Js3vqymmB87Rlom7LUrXfEP/pLtt5+6/8+XEo6hPRyRLNS5kjMZDMbmFWn1WuLl7FSHyRJAQEUZsBJ18eIY5+m2BYl7J93wZD48DPd4kI/636Wh5qaqN//QF7VIYocQAekixw4kCex31zBEOQKCg636Keyt1v5xVoT3os2TH2IG9xIuXqON6gqOFUqeZVt0zm8KrD1d6kjsD7C1CrBqMG9ORyCfyD36zbN2tQXgM5wK9GEMqZvuVTH1ugmYScw9VDINgTNcqq2f2emE8IiTWTQwdqySuBZ7/556u7994KrvXh+cnxpqjUUQzOLo=
