@@ -1,0 +1,41 @@
+language: node_js
+node_js:
+- '5.3'
+sudo: false
+branches:
+  except:
+  - "/^v[0-9\\.]+/"
+before_install:
+- npm install -g coveralls pr-bumper bower
+- pr-bumper check
+install:
+- npm install
+- bower install
+after_success:
+- sed -i -- 's/SF:ember-frost-css-core\/\(.*\)/SF:addon\/\1.js/' coverage/lcov.info &&
+  rm -f coverage/lcov.info--
+- cat coverage/lcov.info | coveralls
+env:
+  matrix:
+  - CXX=g++-4.8
+  global:
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+before_deploy:
+- pr-bumper bump
+deploy:
+  provider: npm
+  email: npm.ciena@gmail.com
+  skip_cleanup: true
+  api_key:
+  on:
+    branch: master
+    tags: false
+after_deploy:
+- .travis/publish-gh-pages.sh
+notifications:
+  slack:
