@@ -29,9 +29,7 @@ var app = new EmberAddon(defaults, {
 Modify your app.scss to include (TODO)
 
 ```
-@import 'frost-core/app';
-@import 'frost-core/flex';
-@import 'frost-core/typography'
+@import 'frost-core';
 ```
 
 You now have access to the theme variables
