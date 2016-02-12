@@ -1,34 +1,39 @@
-[ci-img]: https://img.shields.io/travis/ciena-frost/ember-frost-css-core.svg "Travis CI Build Status"
+[ci-img]: https://travis-ci.org/ciena-frost/ember-frost-css-core.svg "Build Status"
 [ci-url]: https://travis-ci.org/ciena-frost/ember-frost-css-core
-[cov-img]: https://img.shields.io/coveralls/ciena-frost/ember-frost-css-core.svg "Coveralls Code Coverage"
+
+[cov-img]: https://coveralls.io/repos/github/ciena-frost/ember-frost-css-core/badge.svg?branch=master "Code Coverage"
 [cov-url]: https://coveralls.io/github/ciena-frost/ember-frost-css-core
+
 [npm-img]: https://img.shields.io/npm/v/ember-frost-css-core.svg "NPM Version"
 [npm-url]: https://www.npmjs.com/package/ember-frost-css-core
 
-# ember-frost-css-core
+# ember-frost-css-core <br /> [![Travis][ci-img]][ci-url] [![Coveralls][cov-img]][cov-url] [![NPM][npm-img]][npm-url]
 SASS based normalization, convenience classes and variables for Frost projects
 
-# usage
-
-`ember install ember-frost-css-core`
-
-Modify your ember-cli-build.js to include 
+# Usage
 
 ```
-var frostCssCore = require('frostCssCore');
+ember install ember-frost-css-core
+```
 
-var app = new EmberAddon(defaults, {
+Modify your `ember-cli-build.js` to include:
+
+
+```javascript
+const frostCssCore = require('frostCssCore')
+
+const app = new EmberAddon(defaults, {
     sassOptions: {
       includePaths: [
         frostCssCore.includePaths
       ]
     }
-  });
+  })
 ```
 
-Modify your app.scss to include (TODO)
+Modify your `app.scss` to include (TODO)
 
-```
+```sass
 @import 'frost-core';
 ```
 
@@ -38,6 +43,6 @@ e.g.
 
 `$frost-font-size-xl`
 
-# contribution
+# Contribution
 
 TODO
