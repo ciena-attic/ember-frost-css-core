@@ -9,18 +9,23 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember test"
+    "lint": "eslint *.js tests",
+    "test": "npm run lint && ember test"
   },
-  "repository": "",
+  "repository": "git@github.com:ciena-frost/ember-frost-css-core.git",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 5.0.0"
   },
-  "author": "",
+  "author": "Steven Glanzer (https://github.com/sglanzer)",
+  "contributors": [
+    "Adam Meadows (https://github.com/job13er)"
+  ],
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.2.0",
     "ember-cli": "1.13.13",
     "ember-cli-app-version": "^1.0.0",
+    "ember-cli-babel": "^5.1.5",
     "ember-cli-content-security-policy": "0.4.0",
     "ember-cli-dependency-checker": "^1.1.0",
     "ember-cli-htmlbars": "^1.0.1",
@@ -44,9 +49,6 @@
   "keywords": [
     "ember-addon"
   ],
-  "dependencies": {
-    "ember-cli-babel": "^5.1.5"
-  },
   "ember-addon": {
     "configPath": "tests/dummy/config"
   }
