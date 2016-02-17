@@ -20,12 +20,10 @@ Modify your `ember-cli-build.js` to include:
 
 
 ```javascript
-const frostCssCore = require('frostCssCore')
-
 const app = new EmberAddon(defaults, {
     sassOptions: {
       includePaths: [
-        frostCssCore.includePaths
+        'node_modules/ember-frost-css-core/css'
       ]
     }
   })
