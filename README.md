@@ -20,12 +20,10 @@ Modify your `ember-cli-build.js` to include:
 
 
 ```javascript
-const frostCssCore = require('frostCssCore')
-
 const app = new EmberAddon(defaults, {
     sassOptions: {
       includePaths: [
-        frostCssCore.includePaths
+        'node_modules/ember-frost-css-core/css'
       ]
     }
   })
@@ -41,7 +39,7 @@ You now have access to the theme variables
 
 e.g.
 
-`$frost-font-size-xl`
+`$frost-z-index-modal`
 
 # Contribution
 
