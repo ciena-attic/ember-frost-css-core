@@ -7,6 +7,7 @@ module.exports = function (defaults) {
     },
     sassOptions: {
       includePaths: [
+        'node_modules/ember-frost-theme/scss',
         'scss'
       ]
     }

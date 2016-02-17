@@ -39,7 +39,7 @@ You now have access to the theme variables
 
 e.g.
 
-`$frost-font-size-xl`
+`$frost-z-index-modal`
 
 # Contribution
 

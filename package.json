@@ -46,6 +46,9 @@
     "eslint-config-frost-standard": "^0.2.4",
     "sass-lint": "^1.5.0"
   },
+  "dependencies": {
+    "ember-frost-theme": "^1.0.0"
+  },
   "keywords": [
     "ember-addon"
   ],
