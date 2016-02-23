@@ -23,7 +23,7 @@ Modify your `ember-cli-build.js` to include:
 const app = new EmberAddon(defaults, {
     sassOptions: {
       includePaths: [
-        'node_modules/ember-frost-css-core/css'
+        'node_modules/ember-frost-css-core/scss'
       ]
     }
   })
