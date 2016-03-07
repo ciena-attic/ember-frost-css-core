@@ -41,13 +41,13 @@
     "ember-disable-prototype-extensions": "^1.0.0",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
+    "ember-frost-theme": "^1.0.2",
     "ember-try": "~0.0.8",
     "eslint": "^1.10.3",
     "eslint-config-frost-standard": "^0.2.4",
     "sass-lint": "^1.5.0"
   },
   "dependencies": {
-    "ember-frost-theme": "^1.0.0"
   },
   "keywords": [
     "ember-addon"
