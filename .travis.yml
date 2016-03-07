@@ -1,10 +1,36 @@
 language: node_js
 node_js:
-- '5.3'
+- '5.0'
+- 'stable'
 sudo: false
 branches:
   except:
   - "/^v[0-9\\.]+/"
+cache:
+  directories:
+  - bower_components
+  - node_modules
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+env:
+  matrix:
+  - EMBER_TRY_SCENARIO=default
+  - EMBER_TRY_SCENARIO=ember-1-13
+  - EMBER_TRY_SCENARIO=ember-release
+  - EMBER_TRY_SCENARIO=ember-beta
+  - EMBER_TRY_SCENARIO=ember-canary
+  global:
+    - CXX=g++-4.8
+    - secure: E8zjbz0w38lexGNRy+MBbTkCXpIClehpqkyRuayEtb+74fvbXJTQl7SWIi1zOX+BbfUCB/J+djMLET3QjrxIh0ZbR5WWKoc2vYk8CTvQ0UjMeve9n6V3phwhwcIM2w4iLF15jLxDNZhljmPmrMPT1yr6ukOk6gBAz4BUCq/0Ly4Ct4rOFv41ntxu3oYXLK/RHUQWEmBouKp+5x6CA7/789fwX4P1PlB4U2cFpyiWRk79jh2i4Apqn5PRtmKVsOrZf+RA7ib08yqAL11BRit4NeWiqMqCWBkh0104YKzaE/u4UsRAjJhv1iXSBBByi5HDfAO4Z8kYqXwWxzybknupZsmiHYQ0icHNV5/6rclv1Z8dmDjo8BzM8SlLuZrK1ScN1MD44mcgWizCX6shjKOS27YcWr1fcwCLXrBLsi8YDYZvjzBx4K/MqOm0TJxaFet3y1GX2o8T0GL7RZwcuVJj2pFjsYcR5/aP1r6Bwj2ACO37pGy9OFs3UU90BdNTk1VUcxwgo1TjRBqTfsXR6id4t/O0HOUKEismDtD2vF/K9Uto3srPMYYtuxQEje/y2TjQln6gmn5Am0j2BOcfyoA3vhebfWO1NUCMd9PC0BvlPgLKFGmt8jVaGE6KJPGbr4+uA9tCRd1h/zVgslMz2aV80nE3uU0UlGA6vMhdp6WIZgE=
+matrix:
+  fast_finish: true
+  allow_failures:
+  - env: EMBER_TRY_SCENARIO=ember-1-13
+  - env: EMBER_TRY_SCENARIO=ember-canary
 before_install:
 - npm install -g coveralls pr-bumper bower
 - pr-bumper check
@@ -14,17 +40,6 @@ install:
 after_success:
 - sed -i -- 's/SF:ember-frost-css-core\/\(.*\)/SF:addon\/\1.js/' coverage/lcov.info && rm -f coverage/lcov.info--
 - cat coverage/lcov.info | coveralls
-env:
-  matrix:
-  - CXX=g++-4.8
-  global:
-    secure: E8zjbz0w38lexGNRy+MBbTkCXpIClehpqkyRuayEtb+74fvbXJTQl7SWIi1zOX+BbfUCB/J+djMLET3QjrxIh0ZbR5WWKoc2vYk8CTvQ0UjMeve9n6V3phwhwcIM2w4iLF15jLxDNZhljmPmrMPT1yr6ukOk6gBAz4BUCq/0Ly4Ct4rOFv41ntxu3oYXLK/RHUQWEmBouKp+5x6CA7/789fwX4P1PlB4U2cFpyiWRk79jh2i4Apqn5PRtmKVsOrZf+RA7ib08yqAL11BRit4NeWiqMqCWBkh0104YKzaE/u4UsRAjJhv1iXSBBByi5HDfAO4Z8kYqXwWxzybknupZsmiHYQ0icHNV5/6rclv1Z8dmDjo8BzM8SlLuZrK1ScN1MD44mcgWizCX6shjKOS27YcWr1fcwCLXrBLsi8YDYZvjzBx4K/MqOm0TJxaFet3y1GX2o8T0GL7RZwcuVJj2pFjsYcR5/aP1r6Bwj2ACO37pGy9OFs3UU90BdNTk1VUcxwgo1TjRBqTfsXR6id4t/O0HOUKEismDtD2vF/K9Uto3srPMYYtuxQEje/y2TjQln6gmn5Am0j2BOcfyoA3vhebfWO1NUCMd9PC0BvlPgLKFGmt8jVaGE6KJPGbr4+uA9tCRd1h/zVgslMz2aV80nE3uU0UlGA6vMhdp6WIZgE=
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - g++-4.8
 before_deploy:
 - pr-bumper bump
 deploy:
@@ -35,6 +50,8 @@ deploy:
     secure: GX/68CBnS/45g8olcm8cd4H22ghc/7d1VOXNPXIibfh77keW6ftM7WfcfMB85VpjzSrvIRkI9KVgFLEivfzt5ijJ0sObqENJtcNoV2QVCT+LT+BBlgPf+DGH91yQAyR666PfPhtudeXAt0OslgpF31SdUvdS/rcUNxau1RwQscMcAQYkcQz/Q61ahOYrM2w/oOGFfRKqHHYipSMatRUQe65Nzsms697+aSfC+oAFUc9ZhPZj8dNy6LIQC2t+LDzl+wyZLVbzqxs8cHNpjCrs43D2QXUX/sRJYIuBeI87i9s9kVNUuah+kW0h//2IGFSrPSNq4lduQb3pAqsaY6RUWPjCAj4xCG0/C0/lQ3BvakH+7IGs+EGsnVn/LzTI5Yt67d1a+FRoS05TkZMDQcC5ubg3xG5dOB1QkxbMslU1EjQyTjarrG9+KKW6SYX9y/OGbGBayZFqjixnbBnoG72kvpG166PNFed4/QuAMfzABQMiWYFFEL1kEUACv7lDOxxp82/H0hQlEeK1FS3VkmrBSJJ37TxKLZNGzFZOayN0gtGVAUzZrFjM9HN3m6qT0g5QF8b9m7L/F538yOYSPfkrLQmFcjohVH5HTQ+YvRjiMOVJkdD8xWQ2jzncKOoUl5lWpVNw7LdHBD1ozdcteSbNK09LuEtZ+7sFoPPoztoazyU=
   on:
     branch: master
+    condition: "$EMBER_TRY_SCENARIO = 'default'"
+    node: 'stable'
     tags: false
 after_deploy:
 - ".travis/publish-gh-pages.sh"
