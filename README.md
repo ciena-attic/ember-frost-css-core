@@ -10,7 +10,7 @@
 # ember-frost-css-core <br /> [![Travis][ci-img]][ci-url] [![Coveralls][cov-img]][cov-url] [![NPM][npm-img]][npm-url]
 SASS based normalization, convenience classes and variables for Frost projects
 
-# Usage
+# Usage 
 
 ```
 ember install ember-frost-css-core
