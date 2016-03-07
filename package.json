@@ -9,7 +9,7 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "lint": "eslint *.js tests",
+    "lint": "eslint *.js blueprints tests",
     "test": "npm run lint && ember test"
   },
   "repository": "git@github.com:ciena-frost/ember-frost-css-core.git",
