@@ -1,6 +1,6 @@
 {
   "name": "ember-frost-css-core",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
@@ -42,12 +42,12 @@
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
     "ember-try": "^0.2.0",
+    "ember-frost-theme": "^1.0.2",
     "eslint": "^1.10.3",
     "eslint-config-frost-standard": "^0.2.4",
     "sass-lint": "^1.5.0"
   },
   "dependencies": {
-    "ember-frost-theme": "^1.0.0"
   },
   "keywords": [
     "ember-addon"
