@@ -8,9 +8,9 @@
 [npm-url]: https://www.npmjs.com/package/ember-frost-css-core
 
 # ember-frost-css-core <br /> [![Travis][ci-img]][ci-url] [![Coveralls][cov-img]][cov-url] [![NPM][npm-img]][npm-url]
-SASS based normalization, convenience classes and variables for Frost projects
+SASS based normalization, flex convenience classes and variables for Frost projects
 
-# Usage 
+## Usage
 
 ```
 ember install ember-frost-css-core
@@ -29,18 +29,41 @@ const app = new EmberAddon(defaults, {
   })
 ```
 
-Modify your `app.scss` to include (TODO)
+Modify your `app.scss` to include
 
 ```sass
 @import 'frost-core';
 ```
 
-You now have access to the theme variables
+You now have access to the core variables
 
 e.g.
 
 `$frost-z-index-modal`
 
-# Contribution
+## Contribution
 
-TODO
+This following outlines the details of collaborating on this Ember addon:
+
+### Installation
+
+* `git clone` this repository
+* `npm install`
+* `bower install`
+
+### Running
+
+* `ember server`
+* Visit your app at http://localhost:4200.
+
+### Running Tests
+
+* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
+* `ember test`
+* `ember test --server`
+
+### Building
+
+* `ember build`
+
+For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
