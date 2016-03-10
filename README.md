@@ -8,7 +8,7 @@
 [npm-url]: https://www.npmjs.com/package/ember-frost-css-core
 
 # ember-frost-css-core <br /> [![Travis][ci-img]][ci-url] [![Coveralls][cov-img]][cov-url] [![NPM][npm-img]][npm-url]
-SASS based normalization, convenience classes for Frost projects
+SASS based normalization and convenience classes for Frost projects
 
 ## Usage
 
